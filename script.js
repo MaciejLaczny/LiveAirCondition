@@ -23,14 +23,12 @@ const getCityID = async (stationName) => {
 const getCitySensors = async () => {
     const cityID = await getCityID(stationName)
     const response = await fetch(api_sensors_url + cityID)
-    const data = await response.json()
-    return data
+    return await response.json()
 }
 
 const getParamID = async (paramCode) => {
     const citySensors = await getCitySensors()
-    const paramID = citySensors.find(sensor => sensor.param.paramCode === paramCode).id.toString()
-    return paramID
+    return citySensors.find(sensor => sensor.param.paramCode === paramCode).id.toString()
 }
 
 const getParamValue = async (paramLabel) => {
@@ -62,11 +60,11 @@ const setColor = (indicator, value, lowerLimit, upperLimit) => {
     }
 }
 
-const setQuality = async () => {
+const setQuality = (async () => {
     qualityValue.textContent = await getQuality()
-}
+})()
 
-const setIndicators = async () => {
+const setIndicators = (async () => {
     const PM10 = (await getParamValue('PM10')).toFixed(2)
     PM10Value.textContent = PM10
     setColor(PM10Indicator, PM10, 60, 140)
@@ -82,10 +80,8 @@ const setIndicators = async () => {
     const SO2 = (await getParamValue('SO2')).toFixed(2)
     SO2Value.textContent = SO2
     setColor(SO2Indicator, SO2, 100, 350)
-}
+})()
 
-setIndicators()
-setQuality()
 
 
 
