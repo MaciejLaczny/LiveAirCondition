@@ -41,6 +41,11 @@
         align-items: center;
       }
 
+      #search {
+        width: 20%;
+        color: black
+      }
+
       .qualityCardContainer{
         display: flex;
         flex: 3;
@@ -55,13 +60,14 @@
         justify-content: center;
       }
 
-      #qualityCard{
+      #qualityValue{
         display: table;
         margin-top: 14px;
         margin-left: 20px;
-        padding: 2px 15px;
+        padding: 2px 20px;
         font-size: 20pt;
         color: white;
+        border-radius: 10px;
       }
 
       #indicatorsCard {
@@ -98,13 +104,45 @@
         font-size: 34pt;
       }
 
-      #Indicator1 {
+      #PM10Indicator {
         display: flex;
         align-self: center;
         justify-content: center;
         align-items: center;
+        border-radius: 10px;
         height: 38%;
         width: 100%;
+        color: white;
+      }
+      #PM25Indicator {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        height: 38%;
+        width: 100%;
+        color: white;
+      }
+      #COIndicator {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        height: 38%;
+        width: 100%;
+        color: white;
+      }
+      #SO2Indicator {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        height: 38%;
+        width: 100%;
+        color: white;
       }
       .pollutionType {
         display: flex;
@@ -123,6 +161,13 @@
         display: table;
         font-size: 20pt;
       }
+
+      .unit {
+        font-size: 10pt;
+        color: white;
+        margin-left: 2px;
+        margin-top: 15px;
+      }
       
     </style>
   </head>
@@ -135,12 +180,12 @@
       </div>
 
       <div class='cityNameContainer'>
-       <p id="cityName">PŁOCK</p>
+        <p id="cityName">PŁOCK</p>
       </div>
         
       <div class="qualityCardContainer">
         <p id="qualityLabel">Jakość powietrza:</p>
-        <div class="card-panel green darken-1" id='qualityCard'>Bardzo dobra</div>
+        <div class="card-panel green darken-1" id='qualityValue'></div>
       </div>
 
       <div class="indicatorsCardContainer">
@@ -149,29 +194,33 @@
 
           <div class="pollutionType">
             <p class="pollutionLabel" id='PM10Label'>PM10</p>
-            <div class="card white" id="Indicator1">
+            <div class="card white" id="PM10Indicator">
               <p class="pollutionValue" id='PM10Value'></p>
+              <p class="unit"> g/m3</p>
             </div>
           </div>
       
           <div class="pollutionType">
-            <p class="pollutionLabel">PM2.5</p>
-            <div class="card white" id="Indicator1">
-              <p class="pollutionValue">9.57 g/cm3</p>
+            <p class="pollutionLabel" id='PM25Label'>PM2.5</p>
+            <div class="card white" id="PM25Indicator">
+              <p class="pollutionValue" id='PM25Value'></p>
+              <p class="unit">g/m3</p>
             </div>
           </div>
       
           <div class="pollutionType">
-            <p class="pollutionLabel">CO</p>
-            <div class="card white" id="Indicator1">
-              <p class="pollutionValue">9.57 g/cm3</p>
+            <p class="pollutionLabel" id='COLabel'>CO</p>
+            <div class="card white" id="COIndicator">
+              <p class="pollutionValue" id='COValue'></p>
+              <p class="unit"> ug/m3</p>
             </div>
           </div>
       
           <div class="pollutionType">
-            <p class="pollutionLabel">SO2</p>
-            <div class="card white" id="Indicator1">
-              <p class="pollutionValue">9.57 g/cm3</p>
+            <p class="pollutionLabel" id='SO2Label'>SO2</p>
+            <div class="card white" id="SO2Indicator">
+              <p class="pollutionValue" id='SO2Value'></p>
+              <p class="unit"> g/m3</p>
             </div>
           </div>
       
