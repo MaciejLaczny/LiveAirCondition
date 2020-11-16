@@ -8,65 +8,94 @@
     />
     <!--Import materialize.css-->
     <!-- Compiled and minified CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="script.js"></script>
     <style>
-      * {
+      body {
         font-family: Roboto;
       }
       .main {
         display: flex;
-        flex-direction: column;    
-        align-items: center;    
-        border-style: solid;
+        flex-direction: column;     
         height: 100vh;
       }
 
       .searchBar {
-        align-self: flex-start;
+        flex: 1.5;     
+        padding-left: 2%;
         background-color: #d7d7d7;
         width: 100%;
-        height: 8vh;
-        
       }
 
-      #cityName {
+      .cityNameContainer {
         display: flex;
-        font-size: 80pt;
-        
-        margin-top: 64px;
-        margin-bottom: 3vh;
+        flex: 4;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
       }
 
       .qualityCardContainer{
         display: flex;
-      }
-
-      #qualityCard {
-        
-        height: 10vh;
+        flex: 3;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
         width: 100%;
       }
-      #qualityPre {
-        align-self: center;
-        font-size: 34pt;
+      .indicatorsCardContainer{
+        flex: 8;
+        width: 100%;
+        justify-content: center;
+      }
+
+      #qualityCard{
+        display: table;
+        margin-top: 14px;
+        margin-left: 20px;
+        padding: 2px 15px;
+        font-size: 20pt;
+        color: white;
       }
 
       #indicatorsCard {
         display: flex;
         justify-content: center;
         align-content: center;
+        margin-top: 15px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 0vh;
         height: 31vh;
         width: 87%;
-        
+      }
+
+      .pollutionValue {
+        font-size: 16pt;
+      }
+
+      .pollutionLabel {
+        margin: 0;
+        margin-bottom: 5px;
+        font-size: 18pt;
+      }
+
+      #cityName {
+        display: table;
+        margin: 0;
+        margin-top: 25px;
+        font-size: 52pt;
+      }
+
+      #qualityPre {
+        align-self: center;
+        font-size: 34pt;
       }
 
       #Indicator1 {
@@ -82,57 +111,75 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
         margin-right: 1.5%;
         margin-left: 1.5%;
         width: 20%;
       }
+      #quality {
+        display: flex;
+        justify-content: space-around;
+      }
+      #qualityLabel {
+        display: table;
+        font-size: 20pt;
+      }
+      
     </style>
   </head>
 
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <div class="main">
-      <div class="searchBar"></div>
+      <div class="searchBar">
+        <input placeholder="Search station" id="search" type="text">
+      </div>
 
-      <p id="cityName">PŁOCK</p>
-
+      <div class='cityNameContainer'>
+       <p id="cityName">PŁOCK</p>
+      </div>
+        
       <div class="qualityCardContainer">
-        <div class="card white" id="qualityCard">
-          <p id=''>Jakość powietrza: </p>
-        </div>
-        <p id=''> Bardzo dobra</p>
+        <p id="qualityLabel">Jakość powietrza:</p>
+        <div class="card-panel green darken-1" id='qualityCard'>Bardzo dobra</div>
       </div>
-     
-      <div class="card white" id="indicatorsCard">
-        <div class="pollutionType">
-          <p>PM10</p>
-          <div class="card white" id="Indicator1">
-            <p>101010</p>
-          </div>
-        </div>
 
-        <div class="pollutionType">
-          <p>PM10</p>
-          <div class="card white" id="Indicator1">
-            <p>101010</p>
-          </div>
-        </div>
+      <div class="indicatorsCardContainer">
 
-        <div class="pollutionType">
-          <p>PM10</p>
-          <div class="card white" id="Indicator1">
-            <p>101010</p>
-          </div>
-        </div>
+        <div class="card white" id="indicatorsCard">
 
-        <div class="pollutionType">
-          <p>PM10</p>
-          <div class="card white" id="Indicator1">
-            <p>101010</p>
+          <div class="pollutionType">
+            <p class="pollutionLabel" id='PM10Label'>PM10</p>
+            <div class="card white" id="Indicator1">
+              <p class="pollutionValue" id='PM10Value'></p>
+            </div>
           </div>
+      
+          <div class="pollutionType">
+            <p class="pollutionLabel">PM2.5</p>
+            <div class="card white" id="Indicator1">
+              <p class="pollutionValue">9.57 g/cm3</p>
+            </div>
+          </div>
+      
+          <div class="pollutionType">
+            <p class="pollutionLabel">CO</p>
+            <div class="card white" id="Indicator1">
+              <p class="pollutionValue">9.57 g/cm3</p>
+            </div>
+          </div>
+      
+          <div class="pollutionType">
+            <p class="pollutionLabel">SO2</p>
+            <div class="card white" id="Indicator1">
+              <p class="pollutionValue">9.57 g/cm3</p>
+            </div>
+          </div>
+      
         </div>
+        
       </div>
+      
     </div>
   </body>
+  <script src="script.js"></script>
 </html>
